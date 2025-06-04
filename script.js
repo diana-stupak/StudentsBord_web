@@ -120,8 +120,7 @@ function addStudent({ group, name, surname, gender, birthday }) {
             currentStudent.remove();
             hide(document.getElementById("delete-warn-student"));
         };
-        currentStudent = element.target.closest("tr"); /*знаходить рядок таблиці, який містить кнопку видалення, 
-        і зберігає його в змінній currentStudent.*/
+        currentStudent = element.target.closest("tr");
     });
 
 
@@ -224,17 +223,17 @@ function validateAndModifyStudentData(studentData) {
     if (modifiedStudentData.surname) {
         modifiedStudentData.surname = modifiedStudentData.surname.charAt(0).toUpperCase() + modifiedStudentData.surname.slice(1).toLowerCase();
         if (!/^[A-Za-z]+$/.test(modifiedStudentData.surname)) {
-            return null; // Прізвище містить не тільки букви
+            return null;
         }
     }
 
     if (!modifiedStudentData.name || !modifiedStudentData.surname || !modifiedStudentData.group || !modifiedStudentData.gender || !modifiedStudentData.birthday) {
-        return null; // Один або декілька обов'язкових полів відсутні
+        return null; 
     }
 
     const birthdayRegex = /^\d{4}-\d{2}-\d{2}$/;
     if (!birthdayRegex.test(modifiedStudentData.birthday)) {
-        return null; // Неправильний формат дати народження
+        return null; 
     }
 
     return modifiedStudentData;
