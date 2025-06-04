@@ -154,14 +154,14 @@
 
     
     <script>
-      if ('serviceWorker' in navigator) { // Перевірка підтримки Service Worker в браузері
-      //перевірка властивості в об'єкті 
-        navigator.serviceWorker.register('sw.js') // Реєстрація Service Worker з файлом sw.js
-            .then(registration => { // Обробка успішної реєстрації
-                console.log('Service Worker registered with scope:', registration.scope); // Виведення повідомлення про успішну реєстрацію Service Worker разом з областю його застосування
+      if ('serviceWorker' in navigator) { 
+    
+        navigator.serviceWorker.register('sw.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope); 
             })
-            .catch(error => { // Обробка помилки реєстрації
-                console.error('Error registering Service Worker:', error); // Виведення повідомлення про помилку реєстрації Service Worker разом з відповідним повідомленням про помилку
+            .catch(error => { 
+                console.error('Error registering Service Worker:', error); 
             });
           }
   </script>
