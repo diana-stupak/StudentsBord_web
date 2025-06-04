@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" 
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Students</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">CMS</h1>
+        <div class="header__block">
+          <div class="bell"><div class="bell-dot"></div>
+              <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  class="bell-svg"
+                  id="notifications-button"
+              >
+                  <path 
+                      stroke-linecap="round"  
+                      stroke-linejoin="round" 
+                      d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 
+                      9.75V9A6 6 0 0 0 6 
+                      9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 
+                      0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 
+                      8.969 0 0 1 2.168 4.5" 
+                  />
+              </svg>
+              
+              <div class="bell-popup hidden" id="bell-popup">
+                <ul>
+                    <li><img src="user-avatar.png" class="fa fa-user user__img" style="font-size: 54px"/><img src="message-photo.png" class="fa fa-user message__img" style="font-size: 54px"/><li>Admin</li></li>
+                    <li><img src="user-avatar.png" class="fa fa-user user__img" style="font-size: 54px"/><img src="message-photo.png" class="fa fa-user message__img" style="font-size: 54px"/><li>John.k</li></li>
+                    <li><img src="user-avatar.png" class="fa fa-user user__img" style="font-size: 54px"/><img src="message-photo.png" class="fa fa-user message__img" style="font-size: 54px"/><li>Ann.S</li></li>
+                </ul>
+            </div>
+          </div>
+          <div class="user" id="user">
+            <img src="user-avatar.png" class="fa fa-user user__img" style="font-size: 54px"/>
+            <p class="user__name" id="user-name">James Bond</p>
+        </div>
+        <div class="profile-info hidden" id="profile-info">
+          <ul>
+            <li>Profile</li>
+            <li>Log Out</li>
+        </ul>
+      </div>
+        </div>
+    </header>
+    <div class="main">
+      <nav class="nav">
+        <ul>
+          <li><a class="link" href="#">Dashboard</a></li>
+          <li><a class="link" style="font-weight: bold;" href="#">Students</a></li>
+          <li><a class="link" href="#">Tasks</a></li>
+        </ul>
+      </nav>
+      <section class="students">
+        <h2>Students</h2>
+        <div class="students__list">
+          <button class="add__student__btn" id="add-student-btn">
+            +
+          </button>
+          <table class="students__table" id="students-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox"/></th>
+                <th>Group</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Birthday </th>
+                <th class="student-status">Status</th>
+                <th>Options</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+   
+    <div class="modal-wrapper hidden" id="add-student">
+      <div class="modal">
+        <h1 class="add__title">Add student</h1>
+        <form class="add__student__form" id="add-student-form">
+
+          <div class="add_student">
+          <label for="group">Group</label>
+          <select name="group" id="group">
+            <option value="PZ-21">PZ-21</option>
+            <option value="PZ-22">PZ-22</option>
+            <option value="PZ-23">PZ-23</option>
+            <option value="PZ-24">PZ-24</option>
+            <option value="PZ-25">PZ-25</option>
+            <option value="PZ-26">PZ-26</option>
+          </select>
+          <br />
+          <label for="name">First name</label>
+          <input type="text" name="name" id="name" /><br />
+          <label for="surname">Last name</label>
+          <input type="text" name="surname" id="surname" /><br />
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+          <br />
+          <label  for="birthday">Birthday</label>
+          <input type="date" name="birthday" id="birthday" /><br />
+        </div>
+        
+            <form class="edit__student__form" id="edit-student-form">
+          <button type="submit" id="ok_button" class="modal-btn">Ok</button>
+          <button type="button" class="modal-btn" id="add-student-btn-close">Close</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="modal-wrapper hidden" id="delete-warn-student">
+      <div class="modal modal-warn">
+        <h2>Do you want to delete student?</h2>
+        <div>
+          <button class="modal-btn" id="cancel-modal-btn">Cancel</button>
+          <button class="modal-btn" id="delete-modal-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <span><</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>></span>
+    </div>
+
+    
+    <script>
+      if ('serviceWorker' in navigator) { // Перевірка підтримки Service Worker в браузері
+      //перевірка властивості в об'єкті 
+        navigator.serviceWorker.register('sw.js') // Реєстрація Service Worker з файлом sw.js
+            .then(registration => { // Обробка успішної реєстрації
+                console.log('Service Worker registered with scope:', registration.scope); // Виведення повідомлення про успішну реєстрацію Service Worker разом з областю його застосування
+            })
+            .catch(error => { // Обробка помилки реєстрації
+                console.error('Error registering Service Worker:', error); // Виведення повідомлення про помилку реєстрації Service Worker разом з відповідним повідомленням про помилку
+            });
+          }
+  </script>
+  
+  
+
+  <script src="./script.js"></script>
+  </body>
+</html>
